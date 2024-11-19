@@ -10,6 +10,8 @@
 </head>
 <body class="flex min-h-screen flex-col bg-[#121212]">
     <x-navbar />
-    {{$slot}}
+    <div class="mt-24 container mx-auto py-4 px-12">
+        {{$slot}}
+    </div>
 </body>
 </html>

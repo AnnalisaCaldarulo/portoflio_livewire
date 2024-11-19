@@ -1,3 +1,4 @@
+//! navbar toggle
 let isOpen = false;
 let toggleButton = document.querySelector("#toggleButton");
 let toggleIcon = document.querySelector("#toggleIcon");
@@ -21,3 +22,13 @@ toggleButton.addEventListener('click', function () {
         }, 500);
     }
 })
+
+// ! typing
+import Typed from 'typed.js';
+var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+    typeSpeed: 80,
+        startDelay: 300,
+        backSpeed: 100,
+        showCursor: false
+});

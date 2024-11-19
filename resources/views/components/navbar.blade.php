@@ -1,4 +1,4 @@
-<nav class="right-0 z-10 bg-[#121212] bg-opacity-95 border border-[#33353F]">
+<nav class="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-95 border border-[#33353F]">
     <div class="lg:py-4  flex flex-wrap items-center justify-between mx-auto p-8">
         <a href="{{ route('homepage') }}"
             class=" text-xl md:text-4xl font-semibold text-white hover:text-amber-500">portfolio</a>
