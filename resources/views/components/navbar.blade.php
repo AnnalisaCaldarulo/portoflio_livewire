@@ -1,4 +1,4 @@
-<nav class="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-95 border border-[#33353F]">
+<nav class="right-0 z-10 bg-[#121212] bg-opacity-95 border border-[#33353F]">
     <div class="lg:py-4  flex flex-wrap items-center justify-between mx-auto p-8">
         <a href="{{ route('homepage') }}"
             class=" text-xl md:text-4xl font-semibold text-white hover:text-amber-500">portfolio</a>
@@ -36,9 +36,8 @@
         </div>
     </div>
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="hidden" id="mobile-menu">
+    <div class="" id="mobile-menu">
         <ul class="flex flex-col py-4 items-center">
-
             <li>
                 <a href=""
                     class="block py-2 pl-3 pr-4  sm:text-xl rounded md:p-0 text-white hover:text-amber-500">About
