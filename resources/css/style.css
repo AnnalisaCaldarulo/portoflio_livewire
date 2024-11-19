@@ -1,7 +1,7 @@
 #mobile-menu{
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.8s ease-in-out;
+    transition: max-height 0.6s ease-in-out;
 }
 
 #mobile-menu.open{

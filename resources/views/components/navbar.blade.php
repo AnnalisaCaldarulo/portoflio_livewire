@@ -3,18 +3,7 @@
         <a href="{{ route('homepage') }}"
             class=" text-xl md:text-4xl font-semibold text-white hover:text-amber-500">portfolio</a>
         <div class="mobile-menu block md:hidden ">
-            <button id="toggleButton" class="text-white"></button>
-            {{-- {
-                !navOpen ? (
-                    <button onClick={() => setNavOpen(true)} class="text-slate-400 flex items-center px-3 py-2 border rounded border-slate-400 hover:text-white hover:border-white">
-                        <Bars3Icon class="h-5 w-5" />
-                    </button>
-                ) : (
-                    <button onClick={() => setNavOpen(false)} class="text-slate-400 flex items-center px-3 py-2 border rounded border-slate-400 hover:text-white hover:border-white">
-                        <XMarkIcon class="h-5 w-5" />
-                    </button>
-                )
-            } --}}
+            <button id="toggleButton" class="text-white"><i id="toggleIcon" class="bi"></i></button>
         </div>
         <div class="menu hidden md:block md:w-auto" id="navbar">
             <ul class="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
