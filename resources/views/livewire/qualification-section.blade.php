@@ -23,7 +23,7 @@
     </div>
     <div class="mt-8">
         @foreach ($list as $item)
-            <li> {{ $item }} </li>
+            <li> {{ $item->name }} </li>
         @endforeach
     </div>
 </div>

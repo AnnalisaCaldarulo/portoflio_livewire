@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Skill;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 
@@ -23,14 +24,15 @@ class QualificationSection extends Component
     {
         switch ($tab) {
             case 'skillTab':
-                $list = [
-                    'PHP, Laravel, Livewire',
-                    'HTML, CSS',
-                    'JavaScript, React.js, Next.js',
-                    'SQL, MySQL',
-                    'OOP',
-                    'Scrum, Agile',
-                ];
+                // $list = [
+                //     'PHP, Laravel, Livewire',
+                //     'HTML, CSS',
+                //     'JavaScript, React.js, Next.js',
+                //     'SQL, MySQL',
+                //     'OOP',
+                //     'Scrum, Agile',
+                // ];
+                $list = Skill::all();
                 $this->skillTab = true;
                 $this->experienceTab = false;
                 $this->certificationTab = false;
@@ -58,14 +60,7 @@ class QualificationSection extends Component
 
     public function mount()
     {
-        $this->list = [
-            'PHP, Laravel, Livewire',
-            'HTML, CSS',
-            'JavaScript, React.js, Next.js',
-            'SQL, MySQL',
-            'OOP',
-            'Scrum, Agile',
-        ];
+        $this->list = Skill::orderBy('subject')->get();
     }
     public function render()
     {
