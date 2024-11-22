@@ -16,5 +16,8 @@
             </div>
 
         </section>
+        <section>
+            @livewire('projects-section')
+        </section>
     </div>
 </x-layout>

@@ -27,6 +27,7 @@ class CreateProjectForm extends Component
     #[Validate]
     public $description;
 
+    public $image;
     public function rules()
     {
         return [
@@ -34,11 +35,12 @@ class CreateProjectForm extends Component
             'name' => 'required',
             'stack' => 'required',
             'category' => 'required|integer|between:1,2',
-            'github' => 'url',
-            'preview' => 'url',
+            'github' => 'url|nullable',
+            'preview' => 'url|nullable',
             'description'=> 'required'
         ];
     }
+   
 
     public function createProject(){
         $this->validate();

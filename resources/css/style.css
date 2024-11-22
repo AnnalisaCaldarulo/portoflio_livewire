@@ -8,3 +8,17 @@
     max-height: 1000px;
     overflow: auto;
 }
+
+.toBeCollapsed{
+    max-height: 2px;
+    overflow: hidden;
+    transition: min-height 1s ease-in;
+}
+
+.toBeCollapsed.openCollapse{
+    min-height: 80vh;
+    overflow: auto;
+}
+/* .collapse-arrow{
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in;
+} */

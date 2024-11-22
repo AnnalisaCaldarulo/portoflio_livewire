@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97604df3d17275c2fed7c66f6338002a",
+    "content-hash": "9f066cd332aafbea8514b7f2743a6871",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -3544,16 +3544,16 @@
         },
         {
             "name": "spatie/livewire-filepond",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/livewire-filepond.git",
-                "reference": "38396a3f3c45822723ee2d693597cf2724296e3e"
+                "reference": "9f0c8b412b048c069bcdb6be913d51eb14a482af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/livewire-filepond/zipball/38396a3f3c45822723ee2d693597cf2724296e3e",
-                "reference": "38396a3f3c45822723ee2d693597cf2724296e3e",
+                "url": "https://api.github.com/repos/spatie/livewire-filepond/zipball/9f0c8b412b048c069bcdb6be913d51eb14a482af",
+                "reference": "9f0c8b412b048c069bcdb6be913d51eb14a482af",
                 "shasum": ""
             },
             "require": {
@@ -3610,7 +3610,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/livewire-filepond/issues",
-                "source": "https://github.com/spatie/livewire-filepond/tree/1.3.0"
+                "source": "https://github.com/spatie/livewire-filepond/tree/1.4.0"
             },
             "funding": [
                 {
@@ -3618,7 +3618,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-10-18T13:43:31+00:00"
+            "time": "2024-11-22T18:16:57+00:00"
         },
         {
             "name": "symfony/clock",
@@ -9283,5 +9283,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

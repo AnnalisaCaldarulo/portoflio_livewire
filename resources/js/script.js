@@ -24,11 +24,29 @@ toggleButton.addEventListener('click', function () {
 })
 
 // ! typing
-import Typed from 'typed.js';
-var typed = new Typed('#typed', {
-    stringsElement: '#typed-strings',
-    typeSpeed: 80,
-        startDelay: 300,
-        backSpeed: 100,
-        showCursor: false
-});
+// import Typed from 'typed.js';
+// var typed = new Typed('#typed', {
+//     stringsElement: '#typed-strings',
+//     typeSpeed: 80,
+//         startDelay: 300,
+//         backSpeed: 100,
+//         showCursor: false
+// });
+
+// ! collapse section
+
+let collapseArrow = document.querySelector('.collapse-arrow')
+let collapseSelector = document.querySelector('.collapseSelector')
+let toBeCollapsed = document.querySelector('.toBeCollapsed')
+
+
+collapseArrow.classList.add('bi-arrow-down-circle')
+
+collapseSelector.addEventListener('click', function () {
+    toBeCollapsed.classList.toggle("openCollapse")
+    if (toBeCollapsed.classList.contains("openCollapse")) {
+        collapseArrow.classList.replace('bi-arrow-right-circle', 'bi-arrow-down-circle');
+    } else {
+        collapseArrow.classList.replace('bi-arrow-down-circle', 'bi-arrow-right-circle');
+    }
+})

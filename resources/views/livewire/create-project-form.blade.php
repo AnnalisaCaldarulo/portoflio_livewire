@@ -1,13 +1,16 @@
-<div class="grid md:grid-cols-1 my-12">
-    <h1 class="text-4xl text-amber-500  font-bold">Inserisci un progetto </h1>
-    <form class="text-white flex flex-col gap-4 w-full" wire:submit="createProject">
+<div class="grid md:grid-cols-12 my-12">
+    <h2 class="text-2xl col-span-2 text-amber-500 sm:col-span-2 font-bold hover:cursor-pointer collapseSelector "> <i
+            class="bi  mr-1 collapse-arrow rotating"></i> Inserisci un progetto</h2>
+
+    <form class="text-white flex flex-col gap-4 w-full sm:col-span-10 sm:col-start-3 sm:row-start-2 toBeCollapsed openCollapse"
+        wire:submit="createProject">
         <div class="gap-4 flex flex-col">
             <label for="name" class="block mt-5 text-lg">
                 Nome del progetto
             </label>
             <input type="text" id="name" placeholder="nome del progetto" wire:model.blur="name"
                 class=" border border-[#33353F] @error('name') border-orange-700  @enderror bg-[#18191E] placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-5" />
-            @error('name')
+            @error('name')z
                 <p class="text-red-500 italic">{{ $message }}</p>
             @enderror
         </div>
@@ -26,9 +29,8 @@
             <label for="description" class="block mt-2 text-lg">
                 Descrizione
             </label>
-            <textarea id="description" wire:model.blur="description"
-                placeholder="linguaggio di programmazione e framework relativi"
-                class="border border-[#33353F] @error('description') border-orange-700  @enderror bg-[#18191E]  placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-2.5" ></textarea>
+            <textarea id="description" wire:model.blur="description" placeholder="linguaggio di programmazione e framework relativi"
+                class="border border-[#33353F] @error('description') border-orange-700  @enderror bg-[#18191E]  placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-2.5"></textarea>
             @error('description')
                 <p class="text-red-500 italic">{{ $message }}</p>
             @enderror
@@ -53,9 +55,8 @@
         </div>
         <div class="grid sm:grid-cols-12 gap-4">
             <h5 class="mt-2 text-lg col-span-12">Immagine</h5>
-            <x-filepond::upload
-                class="col-span-12 @error('img') border-orange-700  @enderror"
-                max-files="1" wire:model.blur="img" />
+            <x-filepond::upload class="col-span-12 @error('img') border-orange-700  @enderror" max-files="1"
+                wire:model.blur="img" />
             @error('img')
                 <p class="text-red-500 italic">{{ $message }}</p>
             @enderror
