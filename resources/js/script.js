@@ -23,16 +23,6 @@ toggleButton.addEventListener('click', function () {
     }
 })
 
-// ! typing
-// import Typed from 'typed.js';
-// var typed = new Typed('#typed', {
-//     stringsElement: '#typed-strings',
-//     typeSpeed: 80,
-//         startDelay: 300,
-//         backSpeed: 100,
-//         showCursor: false
-// });
-
 // ! collapse section
 
 let collapseArrow = document.querySelector('.collapse-arrow')
@@ -50,3 +40,12 @@ collapseSelector.addEventListener('click', function () {
         collapseArrow.classList.replace('bi-arrow-down-circle', 'bi-arrow-right-circle');
     }
 })
+// ! typing
+import Typed from 'typed.js';
+var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+    typeSpeed: 80,
+        startDelay: 300,
+        backSpeed: 100,
+        showCursor: false
+});

@@ -18,12 +18,16 @@
                 Certifications
             </p>
         </button>
-       
+
 
     </div>
     <div class="mt-8">
         @foreach ($list as $item)
-            <li> {{ $item->name }} </li>
+            @if ($skillTab)
+                <li> {{ $item->name }} </li>
+            @else
+                {{ $item }}
+            @endif
         @endforeach
     </div>
 </div>
