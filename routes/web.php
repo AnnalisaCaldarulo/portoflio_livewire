@@ -4,10 +4,10 @@ use App\Http\Controllers\CertificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\PublicController;
+use Livewire\Exceptions\PublicPropertyNotFoundException;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('homepage');
+Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
 
 // skills
@@ -32,3 +32,5 @@ Route::post('/certification/submit', [CertificationController::class, 'store'])-
 Route::get('/certification/edit/{certification}', [CertificationController::class, 'edit'])->name('certification.edit');
 Route::put('/certification/update/{certification}', [CertificationController::class, 'update'])->name('certification.update');
 
+// dashboard
+Route::get('/dashboard', [PublicController::class, 'dashboard'])->name('dashboard');
