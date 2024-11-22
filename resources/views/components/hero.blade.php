@@ -14,7 +14,7 @@
         <p class=" text-[#ADB7BE] sm:text-lg lg:text-xl mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Libero quisquam ipsum eaque rerum ipsam ipsa impedit! Laboriosam vero sunt fugit.</p>
         <div>
-            <a href="" target="_blank"
+            <a href="/cv.pdf" target="_blank"
                 class="px-6 py-3 sm:w-fit  w-full rounded-full  mr-4 bg-gradient-to-br from-amber-900 via-yellow-700 to-orange-300 bg-white hover:bg-slate-200 text-white">Download
                 CV</a>
         </div>
