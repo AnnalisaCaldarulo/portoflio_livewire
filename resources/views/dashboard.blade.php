@@ -50,6 +50,7 @@
         </div>
         <div class="col-span-12">
             <hr>
+            @livewire('create-project-form')
         </div>
     </section>
 </x-layout>
