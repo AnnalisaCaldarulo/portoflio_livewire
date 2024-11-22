@@ -8,20 +8,21 @@ use Livewire\Component;
 class ProjectsSection extends Component
 {
     public $projects;
-    public $tab = "All";
+    public $btn = "All";
     public $all = true;
     public $backend = false;
     public $frontend = false;
 
-    public function openList($tab)
+
+    public function openList($btn)
     {
-        $this->tab = $tab;
-        $this->projects = $this->getList($tab);
+        $this->btn = $btn;
+        $this->projects = $this->getList($btn);
     }
 
-    protected function getList($tab)
+    protected function getList($btn)
     {
-        switch ($tab) {
+        switch ($btn) {
             case 'all':
                 $projects = Project::orderBy('created_at', 'desc')->get();
                 $this->all = true;
@@ -29,13 +30,13 @@ class ProjectsSection extends Component
                 $this->backend = false;
                 break;
             case 'frontend':
-                $projects = Project::where('category_id', 1)->orderBy('created_at', 'desc')->get();
+                $projects = Project::where('category_id', '=',1)->orderBy('created_at', 'desc')->get();
                 $this->frontend = true;
                 $this->backend = false;
                 $this->all = false;
                 break;
             case 'backend':
-                $projects = Project::where('category_id', 2)->orderBy('created_at', 'desc')->get();
+                $projects = Project::where('category_id', '=', 2)->orderBy('created_at', 'desc')->get();
                 $this->backend = true;
                 $this->frontend = false;
                 $this->all = false;
@@ -46,6 +47,7 @@ class ProjectsSection extends Component
 
     public function mount()
     {
+        $this->btn = 'all';
         $this->projects = Project::orderBy('created_at', 'desc')->get();
     }
 
