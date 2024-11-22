@@ -24,29 +24,18 @@
         <div class="col-span-12">
             <hr>
             <div class="grid md:grid-cols-12 my-12">
-                    <h2 class="text-2xl text-amber-500 sm:col-span-2 font-bold hover:cursor-pointer"> <i class="bi bi-arrow-down-circle mr-1"></i>  Inserisci una Skill</h2>
-                    <form class="text-white flex flex-col gap-4 w-full sm:row-start-2 sm:col-span-10 sm:col-start-3" action="{{ route('skill.store') }}"
-                        method="POST">
-                        @csrf
-                        {{--  email --}}
-                        <label for="name" class="block mt-5  text-lg">
-                            Skill name
-                        </label>
-                        <input type="text" id="name" required name="name" placeholder="nome della skill"
-                            class="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-5" />
-                        {{--  subject --}}
-                        <label for="subject" class="block mt-2 text-lg">
-                            Subject
-                        </label>
-                        <input type="text" id="subject" required name="subject"
-                            placeholder="linguaggio di programmazione e framework relativi"
-                            class="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-5" />
-                        <button type="submit"
-                            class="mt-5 w-1/4 self-center font-medium text-lg py-2.5 px-5 rounded bg-orange-500">
-                            Salva
-                        </button>
+                <h2 class="text-2xl text-amber-500 sm:col-span-2 font-bold hover:cursor-pointer"> <i
+                        class="bi bi-arrow-down-circle mr-1"></i> Inserisci una Skill</h2>
+                <form class="text-white flex flex-col gap-4 w-full sm:row-start-2 sm:col-span-10 sm:col-start-3"
+                    action="{{ route('skill.store') }}" method="POST">
+                    @csrf
+                    {{--  skill name --}}
+                    <x-ui.input name="name" label="Skill name" method="classic" type="text" />
+                    {{--  subject --}}
+                    <x-ui.input name="subject" label="Ambito" method="classic" type="text" />
+                    <x-ui.submitButton label="Salva" />
 
-                    </form>
+                </form>
 
             </div>
         </div>

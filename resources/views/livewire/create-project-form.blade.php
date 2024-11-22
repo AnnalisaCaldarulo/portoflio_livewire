@@ -1,39 +1,18 @@
 <div class="grid md:grid-cols-12 my-12">
     <h2 class="text-2xl col-span-2 text-amber-500 sm:col-span-2 font-bold hover:cursor-pointer collapseSelector "> <i
             class="bi  mr-1 collapse-arrow rotating"></i> Inserisci un progetto</h2>
-
-    <form class="text-white flex flex-col gap-4 w-full sm:col-span-10 sm:col-start-3 sm:row-start-2 toBeCollapsed openCollapse"
+    <form
+        class="text-white flex flex-col gap-4 w-full sm:col-span-10 sm:col-start-3 sm:row-start-2 toBeCollapsed openCollapse"
         wire:submit="createProject">
         <div class="gap-4 flex flex-col">
-            <label for="name" class="block mt-5 text-lg">
-                Nome del progetto
-            </label>
-            <input type="text" id="name" placeholder="nome del progetto" wire:model.blur="name"
-                class=" border border-[#33353F] @error('name') border-orange-700  @enderror bg-[#18191E] placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-5" />
-            @error('name')z
-                <p class="text-red-500 italic">{{ $message }}</p>
-            @enderror
+            <x-ui.input name="name" label="Nome del progetto" type="text" method="livewire" />
         </div>
         <div class="gap-4 flex flex-col">
-            <label for="stack" class="block mt-2 text-lg">
-                Stack
-            </label>
-            <input type="text" id="stack" wire:model.blur="stack"
-                placeholder="linguaggio di programmazione e framework relativi"
-                class="border border-[#33353F] @error('stack') border-orange-700  @enderror bg-[#18191E]  placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-2.5" />
-            @error('stack')
-                <p class="text-red-500 italic">{{ $message }}</p>
-            @enderror
+            <x-ui.input name="stack" label="Linguaggio di programmazione e framework relativi" type="text"
+                method="livewire" />
         </div>
         <div class="gap-4 flex flex-col">
-            <label for="description" class="block mt-2 text-lg">
-                Descrizione
-            </label>
-            <textarea id="description" wire:model.blur="description" placeholder="linguaggio di programmazione e framework relativi"
-                class="border border-[#33353F] @error('description') border-orange-700  @enderror bg-[#18191E]  placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-2.5"></textarea>
-            @error('description')
-                <p class="text-red-500 italic">{{ $message }}</p>
-            @enderror
+            <x-ui.textarea method="livewire" label="Descrizione" name="description" />
         </div>
         <div class="grid sm:grid-cols-12 gap-4">
             <h5 class="mt-2 text-lg col-span-12">Categoria</h5>
@@ -62,31 +41,14 @@
             @enderror
         </div>
         <div class="gap-4 flex flex-col">
-            <label for="gihub" class="block mt-2 text-lg">
-                Url github
-            </label>
-            <input type="url" id="gihub" placeholder="indirizzo@github.com" wire:model.blur="github"
-                class="border border-[#33353F] @error('github') border-orange-700 @enderror bg-[#18191E]  placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-2.5" />
-            @error('github')
-                <p class="text-red-500 italic">{{ $message }}</p>
-            @enderror
+            <x-ui.input type="url" name="github" label="Github URL" method="livewire" />
         </div>
         <div class="gap-4 flex flex-col">
-            <label for="preview" class="block mt-2 text-lg">
-                Url preview
-            </label>
-            <input type="url" id="preview" placeholder="indirizzo@preview.com" wire:model.blur="preview"
-                class="border border-[#33353F] @error('preview') border-orange-700 @enderror bg-[#18191E]  placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-2.5" />
-            @error('preview')
-                <p class="text-red-500 italic">{{ $message }}</p>
-            @enderror
+            <x-ui.input type="url" name="preview" label="Preview URL" method="livewire" />
         </div>
-
-        <button type="submit" class="mt-5 w-1/4 self-center font-medium text-lg py-2.5 px-5 rounded bg-orange-500">
-            Salva
-        </button>
+        <x-ui.submitButton label="Salva" />
         @if (session('success'))
-            <p className='text-green-500 text-lg mt-2'>{{ session('success') }}</p>
+            <p className="text-green-500 italic text-2xl mt-2">{{ session('success') }}</p>
         @endif
     </form>
 </div>
