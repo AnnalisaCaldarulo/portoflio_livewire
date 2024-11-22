@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('stack')->nullable();
             $table->text('description');
-            $table->foreignId('category_id')->constrained()->onDelete('SET NULL');
+            $table->foreignId('category_id')->constrained();
             $table->text('githubUrl')->nullable();
             $table->text('previewUrl')->nullable();
             $table->string('img')->nullable();
