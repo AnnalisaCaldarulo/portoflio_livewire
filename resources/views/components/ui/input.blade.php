@@ -1,4 +1,4 @@
-<label for="{{$name}}" class="block mt-5 text-lg">
+<label for="{{$name}}" class="block mt-5 text-lg mb-3">
     {{$label}}
 </label>
 <input type="{{$type}}" id="{{$name}}" placeholder="{{$label}}" @if($method == 'livewire') wire:model.blur="{{$name}}" @else name="{{$name}}" @endif

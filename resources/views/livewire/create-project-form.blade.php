@@ -1,8 +1,8 @@
-<div class="grid md:grid-cols-12 my-12">
-    <h2 class="text-2xl col-span-2 text-amber-500 sm:col-span-2 font-bold hover:cursor-pointer collapseSelector "> <i
+<div class="grid grid-cols-12 my-12">
+    <h2 class="text-2xl col-span-12 sm:col-span-2 text-amber-500 font-bold hover:cursor-pointer collapseSelector "> <i
             class="bi  mr-1 collapse-arrow rotating"></i> Inserisci un progetto</h2>
     <form
-        class="text-white flex flex-col gap-4 w-full sm:col-span-10 sm:col-start-3 sm:row-start-2 toBeCollapsed openCollapse"
+        class="text-white flex flex-col gap-4 w-full col-span-12 sm:col-span-10 sm:col-start-3 sm:row-start-2 toBeCollapsed openCollapse"
         wire:submit="createProject">
         <div class="gap-4 flex flex-col">
             <x-ui.input name="name" label="Nome del progetto" type="text" method="livewire" />

@@ -12,13 +12,13 @@ use App\Models\Certification;
 class SkillForm extends Component
 {
     public $editMode;
-    public $model = 'skill';
+    public $model = 'experience';
     public $item;
 
     public $skill;
     public $name;
     public $subject;
-    
+
     public $experience;
     public $job;
     public $start;
@@ -30,7 +30,7 @@ class SkillForm extends Component
     public $certificationName;
     public $link;
 
-    public function saveSkill()
+    public function saveItem()
     {
 
         if ($this->editMode) {
@@ -39,10 +39,26 @@ class SkillForm extends Component
                 'subject' => 'required'
             ]));
         } else {
-            Skill::create($this->validate([
-                'name' => 'required',
-                'subject' => 'required'
-            ]));
+            if ($this->model == 'skill') {
+                Skill::create($this->validate([
+                    'name' => 'required',
+                    'subject' => 'required'
+                ]));
+            } elseif ($this->model == 'experience') {
+                $experience = Experience::create([
+                    'job' => $this->job,
+                    'start' => $this->start,
+                    'finish' => $this->finish,
+                    'is_current' => $this->is_current
+                ]);
+            } elseif ($this->model == 'certification') {
+                $certification = Certification::create([
+                    'name' => $this->certificationName,
+                    'link' => $this->link
+                ]);
+            }else{
+                return redirect()->back()->with('success', 'Riprova più tard');
+            }
         }
         session()->flash('success', 'success');
         $this->dispatch('refreshElement')->to(ElementList::class);
@@ -61,18 +77,18 @@ class SkillForm extends Component
     {
         if ($object) {
             $this->editMode = true;
-            $this->model = $object[1];                 
+            $this->model = $object[1];
             if ($object[1] == 'skill') {
                 $this->item = Skill::findOrFail($object[0]['id']);
                 $this->name = $this->item->name;
                 $this->subject = $this->item->subject;
-            }elseif($object[1] == 'experience'){
+            } elseif ($object[1] == 'experience') {
                 $this->item = Experience::findOrFail($object[0]['id']);
                 $this->job = $this->item->job;
                 $this->start = $this->item->start;
                 $this->finish = $this->item->finish;
                 $this->is_current = $this->item->is_current;
-            }elseif($object[1] == 'certification'){
+            } elseif ($object[1] == 'certification') {
                 $this->item = Certification::findOrFail($object[0]['id']);
                 $this->certificationName = $this->item->name;
                 $this->link = $this->item->link;
