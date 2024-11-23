@@ -27,7 +27,10 @@ class CreateProjectForm extends Component
     #[Validate]
     public $description;
 
-    public $image;
+    public $mode;
+
+    public $method;
+
     public function rules()
     {
         return [
@@ -37,12 +40,21 @@ class CreateProjectForm extends Component
             'category' => 'required|integer|between:1,2',
             'github' => 'url|nullable',
             'preview' => 'url|nullable',
-            'description'=> 'required'
+            'description' => 'required'
         ];
     }
-   
+    public function getMode()
+    {
+        if ($this->mode == 'create') {
+            $this->method = $this->createProject;
+        }
+    }
 
-    public function createProject(){
+
+
+
+    public function createProject()
+    {
         $this->validate();
         Project::create([
             'img' => $this->img ? $this->img->store('img', 'public') : null,
@@ -51,10 +63,11 @@ class CreateProjectForm extends Component
             'category_id' => $this->category,
             'github' => $this->github,
             'preview' => $this->preview,
-            'description'=>$this->description
+            'description' => $this->description
         ]);
         session()->flash('success', 'Progetto caricato');
     }
+
     public function render()
     {
         return view('livewire.create-project-form');

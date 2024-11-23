@@ -2,6 +2,7 @@
     <x-hero />
 
 
+
     <div id="about" class="pt-24">
         <section class="text-white ">
             <div class="md:grid md:grid-cols-2 gap-8 items-start px-4 xl:gap-16 sm:py-16 xl:px-16 z-10">

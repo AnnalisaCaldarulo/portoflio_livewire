@@ -13,6 +13,10 @@
         <div class="min-h-[100px] bg-red-500 shadow rounded-full"></div>
         <div class="min-h-[100px] bg-red-500 shadow rounded-full"></div>
     </div>
+    <div class="col-span-12 ">
+        <hr>
+        @livewire('element-list')
+    </div>
     <section class="grid grid-cols-12 mt-4">
         <div class="sm:col-start-5 sm:col-end-9 col-span-12 sm:col-span-6 ">
             <h1 class="text-center text-white mb-4 text-4xl sm:text-5xl lg:text-6xl lg:leading-normal font-extrabold ">
@@ -34,14 +38,13 @@
                     {{--  subject --}}
                     <x-ui.input name="subject" label="Ambito" method="classic" type="text" />
                     <x-ui.submitButton label="Salva" />
-
                 </form>
-
             </div>
         </div>
         <div class="col-span-12">
             <hr>
             @livewire('create-project-form')
         </div>
+
     </section>
 </x-layout>

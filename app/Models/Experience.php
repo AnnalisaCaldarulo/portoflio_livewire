@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Experience extends Model
 {
-    //
+    protected $fillable = [
+        'job',
+        'start',
+        'finish',
+        'is_current'
+    ];
 }
