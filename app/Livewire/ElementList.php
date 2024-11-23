@@ -14,11 +14,11 @@ class ElementList extends Component
     public $element;
     public $elementList;
     public $cols;
-    public $forceRefresh = 0;
+    public $elementType;
 
-    protected $listeners = [
-        '$refresh'
-    ];
+    // protected $listeners = [
+    //     '$refresh'
+    // ];
 
     public function goToForm($element)
     {
@@ -52,7 +52,6 @@ class ElementList extends Component
     #[On('refreshElement')]
     public function render()
     {
-        $this->forceRefresh = $this->forceRefresh++;
         $this->updateElementList();
         return view('livewire.element-list');
     }

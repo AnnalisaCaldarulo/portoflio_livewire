@@ -30,7 +30,7 @@ class SkillForm extends Component
                 'name' => 'required',
                 'subject' => 'required'
             ]));
-        } {
+        }else {
             Skill::create($this->validate([
                 'name' => 'required',
                 'subject' => 'required'
@@ -41,29 +41,27 @@ class SkillForm extends Component
         $this->reset();
         session()->flash('success', 'Operazione conclusa con successo');
     }
-    #[On('goToForm')]
-    public function getEvent($element)
-    {
-        $this->skill = Skill::find($element['id']);
-        $this->name = $element['name'];
-        $this->subject = $element['subject'];
-        $this->editMode = true;
-    }
-
-    // public function mount($skill = null)
+    // public function getEvent($element)
     // {
-
-    //     // $this->skill = Skill::find($skill);
-
-    //     if ($skill) {
-    //         $this->editMode = true;
-    //         $this->skill = $skill;
-    //         $this->name = $skill->name;
-    //         $this->oldName = $skill->name;
-    //         $this->subject = $skill->subject;
-    //         $this->oldSubject = $skill->subject;
-    //     }
+    //    
+    //     $this->name = $element['name'];
+    //     $this->subject = $element['subject'];
+    //     $this->editMode = true;
     // }
+
+    #[On('goToForm')]
+    public function mount($element = null)
+    {
+        // $this->skill = Skill::find($skill);
+        if ($element) {
+            $this->skill = Skill::find($element['id']);
+            $this->editMode = true;
+            $this->name = $this->skill->name;
+            $this->oldName = $this->skill->name;
+            $this->subject = $this->skill->subject;
+            $this->oldSubject = $this->skill->subject;
+        }
+    }
 
 
     public function render()

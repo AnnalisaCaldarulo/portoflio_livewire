@@ -1,9 +1,13 @@
-<div class="grid md:grid-cols-12 my-12" wire:submit="saveSkill">
-    @dump($editMode)
+<div class="grid md:grid-cols-12 my-12">
+    {{-- @dump($editMode)
+    @if ($editMode)
+        @dump($skill->id)
+    @endif --}}
     <h2 class="text-2xl text-amber-500 sm:col-span-2 font-bold hover:cursor-pointer"> <i
             class="bi bi-arrow-down-circle mr-1"></i>{{ $editMode ? 'Modifica "' . $name . '"' : 'Inserisci una Skill' }}
     </h2>
-    <form class="text-white flex flex-col gap-4 w-full sm:row-start-2 sm:col-span-10 sm:col-start-3">
+    <form class="text-white flex flex-col gap-4 w-full sm:row-start-2 sm:col-span-10 sm:col-start-3"
+        wire:submit="saveSkill">
         {{--  skill name --}}
         <x-ui.input name="name" label="Skill name" method="livewire" type="text" />
         {{--  subject --}}
