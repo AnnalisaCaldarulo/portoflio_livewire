@@ -63,14 +63,13 @@
                     @enderror
                 </div>
                 <div class="sm:col-span-4 my-auto">
-                    <x-ui.input name="is_current" label="Lavoro attuale?" method="livewire" type="checkbox" />
+                    <x-ui.input name="is_current" label="Lavoro attuale?" method="livewire"
+                        type="checkbox" />
                     @error('is_current')
                         <p class="text-red-500 italic">{{ $message }}</p>
                     @enderror
                 </div>
             </div>
-
-
             <x-ui.submitButton label="Salva" />
 
             <div class="w-1/2 self-center">
@@ -94,4 +93,24 @@
             <x-ui.submitButton label="Salva" />
         </form>
     @endif
+    <script>
+        let is_current = document.querySelector('#is_current')
+        let finish = document.querySelector('#finish')
+        is_current.addEventListener('change', toggleInput());
+
+        function toggleInput() {
+            console.log('in');
+
+            // Se la checkbox è selezionata, disabilita l'input
+            if (is_current.checked == true) {
+                console.log('checked');
+
+                finish.disabled = true;
+            } else {
+                console.log('unchecked');
+
+                finish.disabled = false;
+            }
+        }
+    </script>
 </div>
