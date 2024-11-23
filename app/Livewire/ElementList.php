@@ -14,15 +14,12 @@ class ElementList extends Component
     public $element;
     public $elementList;
     public $cols;
-    public $elementType;
 
-    // protected $listeners = [
-    //     '$refresh'
-    // ];
-
-    public function goToForm($element)
+    public function goToForm($object)
     {
-        $this->dispatch('goToForm', $element)->to(SkillForm::class);
+        // dd($object, $class);
+        $class = $this->element;
+        $this->dispatch('goToForm', [$object, $class])->to(SkillForm::class);
     }
 
     public function mount()

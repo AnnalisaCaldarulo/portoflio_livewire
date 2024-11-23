@@ -37,13 +37,13 @@
                 </tr>
             </thead>
             <tbody class="" >
-                @foreach($elementList as $element)
+                @foreach($elementList as $el)
                 <tr class="">
-                    @foreach($element->getFillable() as $attribute)
-                    <td class="text-center p-5 border border-slate-300">{{$element->$attribute}} </td>
+                    @foreach($el->getFillable() as $attribute)
+                    <td class="text-center p-5 border border-slate-300">{{$el->$attribute}} </td>
                     @endforeach
                     <td class="text-center  flex justify-center gap-4 items-center border border-slate-300 p-5 ">
-                        <a href="#skillform" class="bg-yellow-500 h-100 w-1/4 rounded p-3 " wire:click="goToForm({{$element}})"><i class="bi bi-pencil"></i></a>
+                        <a href="#skillform" class="bg-yellow-500 h-100 w-1/4 rounded p-3 " wire:click="goToForm({{$el}})"><i class="bi bi-pencil"></i></a>
                         <button class="bg-red-500 w-1/4 rounded p-3"><i class="bi bi-trash"></i></button>
                     </td>
                 </tr>
