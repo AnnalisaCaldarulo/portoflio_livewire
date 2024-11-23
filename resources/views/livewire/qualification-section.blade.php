@@ -23,10 +23,14 @@
     </div>
     <div class="mt-8">
         @foreach ($list as $item)
-            @if ($skillTab)
-                <li> {{ $item->name }} </li>
+            @if ($experienceTab)
+                <li> {{ $item->job }} </li>
+            @elseif ($certificationTab)
+                <a href="{{ $item->link ?? '#about' }}"> {{ $item->name }} </a>
             @else
-                {{ $item }}
+                <li>
+                    {{ $item->name }}
+                </li>
             @endif
         @endforeach
     </div>

@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Models\Certification;
+use App\Models\Experience;
 use App\Models\Skill;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
@@ -24,31 +26,19 @@ class QualificationSection extends Component
     {
         switch ($tab) {
             case 'skillTab':
-                // $list = [
-                //     'PHP, Laravel, Livewire',
-                //     'HTML, CSS',
-                //     'JavaScript, React.js, Next.js',
-                //     'SQL, MySQL',
-                //     'OOP',
-                //     'Scrum, Agile',
-                // ];
                 $list = Skill::all();
                 $this->skillTab = true;
                 $this->experienceTab = false;
                 $this->certificationTab = false;
                 break;
             case 'experienceTab':
-                $list = [
-                    'experience',
-                ];
+                $list = Experience::all();
                 $this->experienceTab = true;
                 $this->certificationTab = false;
                 $this->skillTab = false;
                 break;
             case 'certificationTab':
-                $list = [
-                    'certificationTab',
-                ];
+                $list = Certification::all();
                 $this->certificationTab = true;
                 $this->experienceTab = false;
                 $this->skillTab = false;
