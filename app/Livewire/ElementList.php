@@ -22,10 +22,12 @@ class ElementList extends Component
         $this->dispatch('goToForm', [$object, $class])->to(SkillForm::class);
     }
 
-    public function mount()
+    public function deleteElement($item)
     {
-        $this->element = 'skill';
-        $this->updateElementList();
+        $modelClass = 'App\\Models\\' . ucfirst($this->element);
+        $obj = $modelClass::findOrFail($item['id']);
+        $obj->delete();
+        session()->flash('success', $this->element . ' cancellato.');
     }
 
     public function updateElementList()
@@ -45,6 +47,12 @@ class ElementList extends Component
                 break;
         }
     }
+    public function mount()
+    {
+        $this->element = 'skill';
+        $this->updateElementList();
+    }
+
 
     #[On('refreshElement')]
     public function render()

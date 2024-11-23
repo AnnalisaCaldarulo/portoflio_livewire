@@ -8,21 +8,21 @@
                     <i class="bi bi-arrow-down-circle mr-1"></i> Elenco {{ $element }} </h2>
                 <div
                     class="sm:col-start-5 col-span-12 sm:col-span-2 flex items-center ps-4 border @if($element == 'skill') border-orange-500 @else border-[#33353F]  @endif bg-[#18191E] rounded">
-                    <input id="skill" type="radio" value="skill" name="bordered-radio" wire:model.live="element"
+                    <input id="skillList" type="radio" value="skill" name="typeRadio" wire:model.live="element"
                         class="w-4 h-4  bg-[#33353F] ">
-                    <label for="skill" class="w-full py-4 ms-2 text-sm font-medium text-white">Skill</label>
+                    <label for="skillList" class="w-full py-4 ms-2 text-sm font-medium text-white">Skill</label>
                 </div>
                 <div
                     class=" col-span-12 sm:col-span-2 flex items-center ps-4 border @if($element == 'experience') border-orange-500 @else border-[#33353F] @endif rounded bg-[#18191E]">
-                    <input id="experience" type="radio" value="experience" name="bordered-radio"
+                    <input id="experienceList" type="radio" value="experience" name="typeRadio"
                         wire:model.live="element" class=" w-4 h-4  bg-[#33353F] ">
-                    <label for="experience" class="w-full py-4 ms-2 text-sm font-medium text-white">Experience</label>
+                    <label for="experienceList" class="w-full py-4 ms-2 text-sm font-medium text-white">Experience</label>
                 </div>
                 <div
                     class=" col-span-12 sm:col-span-2 flex items-center ps-4 border  @if($element == 'certification') border-orange-500 @else border-[#33353F] @endif rounded bg-[#18191E]">
-                    <input id="certification" type="radio" value="certification" name="bordered-radio"
+                    <input id="certificationList" type="radio" value="certification" name="typeRadio"
                         wire:model.live="element" class=" w-4 h-4 bg-[#33353F] ">
-                    <label for="certification"
+                    <label for="certificationList"
                         class="w-full py-4 ms-2 text-sm font-medium text-white">Certification</label>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                                 class="text-center  flex justify-center gap-4 items-center border border-slate-300 p-5 ">
                                 <a href="#skillform" class="bg-yellow-500 h-100 w-1/4 rounded p-3 "
                                     wire:click="goToForm({{ $el }})"><i class="bi bi-pencil"></i></a>
-                                <button class="bg-red-500 w-1/4 rounded p-3"><i class="bi bi-trash"></i></button>
+                                <button class="bg-red-500 w-1/4 rounded p-3" wire:confirm="Are you sure you want to delete this post?" wire:click="deleteElement({{$el}})"><i class="bi bi-trash"></i></button>
                             </td>
                         </tr>
                     @endforeach

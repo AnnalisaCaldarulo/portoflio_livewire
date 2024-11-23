@@ -72,9 +72,6 @@ class SkillForm extends Component
             $this->item->update($this->validateData());
         } else {
             $modelClass = 'App\\Models\\' . ucfirst($this->model);
-            // $model = new $modelClass;
-            // $model->fill($this->validateData())->save();
-            // dd($modelClass);
             $data = $this->validateData();
             if (array_key_exists('certificationName', $data)) {
                 $data['name'] = $data['certificationName'];
