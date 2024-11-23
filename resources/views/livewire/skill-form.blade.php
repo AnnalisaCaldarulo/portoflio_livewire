@@ -25,7 +25,7 @@
     </div>
     @if ($model == 'skill')
         <form class="text-white flex flex-col gap-4 w-full sm:row-start-2 sm:col-span-10 sm:col-start-3"
-            wire:submit="saveSkill">
+            wire:submit="saveItem">
             {{--  skill name --}}
             <x-ui.input name="name" label="Skill name" method="livewire" type="text" />
             {{--  subject --}}
@@ -39,7 +39,7 @@
         </form>
     @elseif($model == 'experience')
         <form class="text-white col-span-12 flex flex-col gap-4 w-full sm:row-start-2 sm:col-span-10 sm:col-start-3"
-            wire:submit="saveSkill">
+            wire:submit="saveItem">
             {{--  lavoro --}}
             <x-ui.input name="job" label="Descrizione dell'incarico" method="livewire" type="text" />
             {{--  date --}}

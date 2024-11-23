@@ -30,47 +30,84 @@ class SkillForm extends Component
     public $certificationName;
     public $link;
 
+    // public function saveItem()
+    // {
+
+    //     if ($this->editMode) {
+    //         $this->skill->update($this->validate([
+    //             'name' => 'required',
+    //             'subject' => 'required'
+    //         ]));
+    //     } else {
+    //         if ($this->model == 'skill') {
+    //             Skill::create($this->validate([
+    //                 'name' => 'required',
+    //                 'subject' => 'required'
+    //             ]));
+    //         } elseif ($this->model == 'experience') {
+    //             $experience = Experience::create([
+    //                 'job' => $this->job,
+    //                 'start' => $this->start,
+    //                 'finish' => $this->finish,
+    //                 'is_current' => $this->is_current
+    //             ]);
+    //         } elseif ($this->model == 'certification') {
+    //             $certification = Certification::create([
+    //                 'name' => $this->certificationName,
+    //                 'link' => $this->link
+    //             ]);
+    //         }else{
+    //             return redirect()->back()->with('success', 'Riprova più tard');
+    //         }
+    //     }
+    //     session()->flash('success', 'success');
+    //     $this->dispatch('refreshElement')->to(ElementList::class);
+    //     $this->reset();
+    //     session()->flash('success', 'Operazione conclusa con successo');
+    // }
+
     public function saveItem()
     {
-
         if ($this->editMode) {
-            $this->skill->update($this->validate([
-                'name' => 'required',
-                'subject' => 'required'
-            ]));
+            $this->item->update($this->validateData());
         } else {
-            if ($this->model == 'skill') {
-                Skill::create($this->validate([
-                    'name' => 'required',
-                    'subject' => 'required'
-                ]));
-            } elseif ($this->model == 'experience') {
-                $experience = Experience::create([
-                    'job' => $this->job,
-                    'start' => $this->start,
-                    'finish' => $this->finish,
-                    'is_current' => $this->is_current
-                ]);
-            } elseif ($this->model == 'certification') {
-                $certification = Certification::create([
-                    'name' => $this->certificationName,
-                    'link' => $this->link
-                ]);
-            }else{
-                return redirect()->back()->with('success', 'Riprova più tard');
+            $modelClass = 'App\\Models\\' . ucfirst($this->model);
+            // $model = new $modelClass;
+            // $model->fill($this->validateData())->save();
+            // dd($modelClass);
+            $data = $this->validateData();
+            if (array_key_exists('certificationName', $data)) {
+                $data['name'] = $data['certificationName'];
             }
+            $modelClass::create($data);
         }
-        session()->flash('success', 'success');
+
+        session()->flash('success', 'Operazione conclusa con successo');
         $this->dispatch('refreshElement')->to(ElementList::class);
         $this->reset();
-        session()->flash('success', 'Operazione conclusa con successo');
     }
-    // public function getEvent($element)
-    // {
-    //     $this->name = $element[0]['name'];
-    //     $this->subject = $element[0]['subject'];
-    //     $this->editMode = true;
-    // }
+
+    protected function validateData()
+    {
+        if ($this->model === 'skill') {
+            return $this->validate([
+                'name' => 'required',
+                'subject' => 'required'
+            ]);
+        } elseif ($this->model === 'experience') {
+            return $this->validate([
+                'job' => 'required',
+                'start' => 'required',
+                'finish' => 'required',
+                'is_current' => 'boolean'
+            ]);
+        } elseif ($this->model === 'certification') {
+            return $this->validate([
+                'certificationName' => 'required',
+                'link' => 'required|url'
+            ]);
+        }
+    }
 
     #[On('goToForm')]
     public function mount($object = null)
