@@ -1,5 +1,6 @@
 <x-layout>
     <div class="grid md:grid-cols-1 my-12 py-24">
+        @dump($skill)
         <h1 class="text-4xl text-amber-500 text-center font-bold">Inserisci una Skill</h1>
         <form class="text-white flex flex-col gap-4 w-full" action="{{route('skill.store')}}" method="POST">
             @csrf

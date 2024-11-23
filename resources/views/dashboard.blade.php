@@ -25,13 +25,14 @@
                 </span>
             </h1>
         </div>
-        <div class="col-span-12">
+        <div class="min-h-[50px]" id="skillform"></div>
+        <div class="col-span-12" >
             <hr>
             <div class="grid md:grid-cols-12 my-12">
                 <h2 class="text-2xl text-amber-500 sm:col-span-2 font-bold hover:cursor-pointer"> <i
                         class="bi bi-arrow-down-circle mr-1"></i> Inserisci una Skill</h2>
                 <form class="text-white flex flex-col gap-4 w-full sm:row-start-2 sm:col-span-10 sm:col-start-3"
-                    action="{{ route('skill.store') }}" method="POST">
+                    action="{{ route('skill.store') }}" method="POST" >
                     @csrf
                     {{--  skill name --}}
                     <x-ui.input name="name" label="Skill name" method="classic" type="text" />

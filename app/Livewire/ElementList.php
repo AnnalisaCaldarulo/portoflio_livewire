@@ -35,6 +35,12 @@ class ElementList extends Component
                 break;
         }
     }
+
+
+    public function editView(Skill $skill){
+        return view('skill.create', compact('skill'));
+    }
+
     public function render()
     {
         $this->updateElementList();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     @filepondScripts
 </head>
 
-<body class="flex min-h-screen flex-col bg-[#121212]">
+<body class="flex min-h-screen flex-col bg-[#121212] ">
     <x-navbar />
     <div class="mt-24 container mx-auto py-4 px-12">
         {{ $slot }}
