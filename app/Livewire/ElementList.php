@@ -12,26 +12,32 @@ class ElementList extends Component
     public $element;
     public $elementList;
     public $cols;
+
     public function mount()
     {
-        $this->element = 'skill';
-        $this->elementList = Skill::orderBy('created_at', 'desc')->get();
+        $this->element = 'skill'; 
+        $this->updateElementList();
+    }
+
+    public function updateElementList() {
+        switch ($this->element) {
+            case 'skill':
+                $this->elementList = Skill::orderBy('created_at', 'desc')->get();
+                $this->cols = (new Skill)->getFillable();
+                break;
+            case 'experience':
+                $this->elementList = Experience::orderBy('created_at', 'desc')->get();
+                $this->cols = (new Experience)->getFillable();
+                break;
+            case 'certification':
+                $this->elementList = Certification::orderBy('created_at', 'desc')->get();
+                $this->cols = (new Certification)->getFillable();
+                break;
+        }
     }
     public function render()
     {
-        if ($this->element == 'skill') {
-            $this->elementList = Skill::orderBy('created_at', 'desc')->get();
-            $skill = new Skill;
-            $this->cols = $skill->getFillable();
-        } elseif ($this->element == 'experience') {
-            $this->elementList = Experience::orderBy('created_at', 'desc')->get();
-            $experience = new Experience;
-            $this->cols = $experience->getFillable();
-        } elseif ($this->element == 'certification') {
-            $this->elementList = Certification::orderBy('created_at', 'desc')->get();
-            $certification = new Certification;
-            $this->cols = $certification->getFillable();
-        }
+        $this->updateElementList();
         return view('livewire.element-list');
     }
 }
