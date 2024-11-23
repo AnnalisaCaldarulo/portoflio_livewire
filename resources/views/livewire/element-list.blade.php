@@ -43,7 +43,7 @@
                     <td class="text-center p-5 border border-slate-300">{{$element->$attribute}} </td>
                     @endforeach
                     <td class="text-center  flex justify-center gap-4 items-center border border-slate-300 p-5 ">
-                        <a href="{{route('dashboard').'#skillform'}}" class="bg-yellow-500 h-100 w-1/4 rounded p-3 ">Ciao</a>
+                        <a href="#skillform" class="bg-yellow-500 h-100 w-1/4 rounded p-3 " wire:click="goToForm({{$element}})">Ciao</a>
                         <button class="bg-red-500 w-1/4 rounded p-3">Ciao</button>
                     </td>
                 </tr>

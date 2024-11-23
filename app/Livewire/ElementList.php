@@ -2,16 +2,21 @@
 
 namespace App\Livewire;
 
-use App\Models\Certification;
-use App\Models\Experience;
 use App\Models\Skill;
 use Livewire\Component;
+use App\Models\Experience;
+use App\Livewire\SkillForm;
+use App\Models\Certification;
 
 class ElementList extends Component
 {
     public $element;
     public $elementList;
     public $cols;
+
+    public function goToForm($element){
+        $this->dispatch('goToForm', $element)->to(SkillForm::class);
+    }
 
     public function mount()
     {
@@ -36,10 +41,6 @@ class ElementList extends Component
         }
     }
 
-
-    public function editView(Skill $skill){
-        return view('skill.create', compact('skill'));
-    }
 
     public function render()
     {
