@@ -47,8 +47,8 @@
             <x-ui.input type="url" name="preview" label="Preview URL" method="livewire" />
         </div>
         <x-ui.submitButton label="Salva" />
-        @if (session('success'))
-            <p className="text-green-500 italic text-2xl mt-2">{{ session('success') }}</p>
-        @endif
+        <div class="w-1/2">
+            <x.ui-success-message />
+        </div>
     </form>
 </div>

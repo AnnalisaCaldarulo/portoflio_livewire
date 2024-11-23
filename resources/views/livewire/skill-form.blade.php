@@ -31,11 +31,9 @@
             {{--  subject --}}
             <x-ui.input name="subject" label="Ambito" method="livewire" type="text" />
             <x-ui.submitButton label="Salva" />
-            @if (session('success'))
-                <div class="alert border rounded">
-                    <p className="text-green-500 italic text-2xl mt-2">{{ session('success') }}</p>
-                </div>
-            @endif
+            <div class="w-1/2">
+                <x-ui.success-message />
+            </div>
         </form>
     @elseif($model == 'experience')
         <form class="text-white col-span-12 flex flex-col gap-4 w-full sm:row-start-2 sm:col-span-10 sm:col-start-3"
@@ -57,11 +55,11 @@
 
 
             <x-ui.submitButton label="Salva" />
-            @if (session('success'))
-                <div class="alert border rounded">
-                    <p className="text-green-500 italic text-2xl mt-2">{{ session('success') }}</p>
-                </div>
-            @endif
+            
+            <div class="w-1/2 self-center">
+                <x-ui.success-message />
+            </div>
+
         </form>
     @elseif($model == 'certification')
         <form class="text-white flex flex-col gap-4 w-full sm:row-start-2 sm:col-span-10 sm:col-start-3"
@@ -71,11 +69,6 @@
             {{--  link --}}
             <x-ui.input name="link" label="Link" method="livewire" type="url" />
             <x-ui.submitButton label="Salva" />
-            @if (session('success'))
-                <div class="alert border rounded">
-                    <p className="text-green-500 italic text-2xl mt-2">{{ session('success') }}</p>
-                </div>
-            @endif
         </form>
     @endif
 </div>
