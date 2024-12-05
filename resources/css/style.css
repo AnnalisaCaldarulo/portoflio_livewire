@@ -23,7 +23,6 @@
     transition: transform 0.3s ease-in-out, opacity 0.2s ease-in;
 } */
 
-/* project section */
-.clickedButton{
-    
+.date::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }

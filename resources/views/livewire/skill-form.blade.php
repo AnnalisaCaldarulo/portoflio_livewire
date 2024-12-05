@@ -57,14 +57,19 @@
                     @enderror
                 </div>
                 <div class="sm:col-span-4">
-                    <x-ui.input name="finish" label="Data di fine:" method="livewire" type="date" />
+                    <label for="fisnish" class="block mt-5 text-lg mb-3">
+                        Data di fine:
+                    </label>
+                    <input type="date" id="fisnish" placeholder="Data di fine:" wire:model.live="fisnish"
+                        class="date border border-[#33353F] @error('fisnish') border-orange-700  @enderror bg-[#18191E] placeholder-[#9CA2A9] text-gray-100 text-lg rounded-lg block w-full p-5"
+                        @if ($is_current) disabled @endif />
+
                     @error('finish')
                         <p class="text-red-500 italic">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="sm:col-span-4 my-auto">
-                    <x-ui.input name="is_current" label="Lavoro attuale?" method="livewire"
-                        type="checkbox" />
+                <div class="sm:col-span-4">
+                    <x-ui.input name="is_current" label="Lavoro attuale?" method="livewire" type="checkbox" />
                     @error('is_current')
                         <p class="text-red-500 italic">{{ $message }}</p>
                     @enderror
@@ -93,24 +98,5 @@
             <x-ui.submitButton label="Salva" />
         </form>
     @endif
-    <script>
-        let is_current = document.querySelector('#is_current')
-        let finish = document.querySelector('#finish')
-        is_current.addEventListener('change', toggleInput());
 
-        function toggleInput() {
-            console.log('in');
-
-            // Se la checkbox è selezionata, disabilita l'input
-            if (is_current.checked == true) {
-                console.log('checked');
-
-                finish.disabled = true;
-            } else {
-                console.log('unchecked');
-
-                finish.disabled = false;
-            }
-        }
-    </script>
 </div>

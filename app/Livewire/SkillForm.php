@@ -30,7 +30,7 @@ class SkillForm extends Component
     #[Validate('nullable|date|after_or_equal:start')]
     public $finish;
     #[Validate('required|boolean')]
-    public $is_current;
+    public $is_current = false;
 
 
     public $certification;
